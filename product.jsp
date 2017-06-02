@@ -221,7 +221,9 @@
 
                 %>
                 <div class="  product-grid" style="height:285px; width:210px  " >
+                    <!--Choose 1 picture input in single page-->
                     <div class="content_box"><a href="controller?action=productDetail&id=<%=temp.getID_product()%>">
+                            
                             <div class="left-grid-view grid-view-left">
                                 <img src="<%=url[0]%>"  class="img-responsive watch-center" alt=""/>
                                 <div class="mask">
@@ -230,6 +232,8 @@
                         </a>
                     </div>
                     <h3><a href="controller?action=productDetail&id=<%=temp.getID_product()%>"><%=temp.getName()%></a></h3>
+                    
+                    <p><%= temp.getPrice() %> $ </p>
                     
 
                 </div>

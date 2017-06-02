@@ -52,6 +52,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--//fonts-->
         <script src="js/jquery.min.js"></script>
         <script src="js/base-ajax.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        
         <script src="js/jquery.etalage.min.js"></script>
         <script>
             jQuery(document).ready(function ($) {
@@ -202,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class=" single_top">
 
             <%
-                String sql = "select url from pro.url where ID_product = '" + temp.getID_product() + "'";
+                String sql = "select url from pro.url where ID_product = '" + temp.getID_product() + "'";//lay hinh trong database
                 ResultSet rs = db.getResult(sql, con);
 
                 String[] url = new String[5];
@@ -214,7 +216,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             %>
             <div class="single_grid">
-                <div class="grid images_3_of_2">
+                <div class="grid images_3_of_2"> 
+                    <!--Zoom and click picture-->
                     <ul id="etalage">
                         <li>
                             <a href="optionallink.html">
@@ -236,8 +239,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
                     <h4><%=temp.getName()%></h4>
-
-                    <h6>100 items in stock</h6>
                     <p><%=temp.getDescription()%></p>
                     <div class="share">
                         <h5>Share Product :</h5>
@@ -274,10 +275,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <!--<input type="submit" name="action" value="Add to Cart"> -->
                             <input type="button" value="add to cart" onclick="addToCart()">
 
-                            <a class="btn" role="button" onclick="addToCart()">Buy Now</a>
+                            
                             <div  style="color:red; margin-top: 20px" id="cart-msg"></div> 
 
-                            <div> login to buy </div>
+                            
 
 
 

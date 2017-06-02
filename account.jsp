@@ -1,4 +1,11 @@
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="db.DatabaseConnection"%>
+<%@page import="dao.DAO"%>
+<%@page import="bean.order"%>
+<%@page import="bean.order"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="util.Encript"%>
 <%@page import="model.Account"%>
 <%@page import="model.UserRole"%>
@@ -106,36 +113,38 @@
                             <h3><%=languageMap.get("acc.history")%></h3>
                             <div>
                                 <center>
-                                    <h1> Chọn tháng cần xem thống kê: </h1>
-                                    <form>
-                                        Tháng:
-                                        <select id="mm">
-                                            <option value="mm">Tháng</option>
-                                            <script type="text/javascript">
-                                                for (var i = 1; i <= 12; i++)
-                                                    document.write("<option value='" + i + "'>" + i + "</option>");
-                                            </script>    
-                                        </select>
-                                        Năm:
-                                        <select id="yy">
-                                            <option value="yy">Năm</option>
-                                            <script type="text/javascript">
-                                                for (var i = 2009; i <= 2017; i++)
-                                                    document.write("<option value='" + i + "'>" + i + "</option>");
-                                            </script>    
-                                        </select>
-                                        <input type="submit" name="ok" value="OK">
-                                    </form>
-                                    <br>
-                                    <br>
-                                    <table border="2" style="font-size: 150%; width: 70%">
-                                        <tr>
-                                            <th>Hình ảnh Sản phẩm</th>
-                                            <th>Tên sản phẩm</th>
-                                            <th>Số lượng</th>
-                                            <th>Giá</th>
-                                        </tr>
-                                    </table>
+                                    <%
+                                        String accid = (String) session.getAttribute("login");//not understand
+                                        DatabaseConnection db = new DatabaseConnection();
+                                        Connection con = db.setConnection();
+                                        String sql = "SELECT * FROM pro.order where order.accid = '" + accid + "'";
+                                        ResultSet rs = db.getResult(sql, con);
+
+                                        int j = 0;
+
+                                    %>
+                                    <div>
+                                        <table border="2" style="font-size: 150%; width: 100%; background-color: lightblue;text-align: center;">
+                                            <tr>
+                                                <th><center>ID_item</center></th>
+                                        <th><center>Day</center></th>
+                                    <th><center>Month</center></th>
+                                    <th><center>Year</center></th>
+                                    <th><center>Price</center></th>
+                                    <th><center>Description</center></th>
+                                            </tr>
+                                            <% while (rs.next()) {%>
+                                            <tr>
+                                                <td><%=rs.getInt("ID_order")%></td>
+                                                <td><%=rs.getInt("day")%></td>
+                                                <td><%=rs.getInt("month")%></td>
+                                                <td><%=rs.getInt("year")%></td>
+                                                <td><%=rs.getDouble("totalPrice")%></td>
+                                                <td><a href="controller?action=orderDetail&ID_order=<%=rs.getInt("ID_order")%>">Detail</a></td>
+                                            </tr>
+                                            <% }%>
+                                        </table>
+                                    </div>
                                 </center>
                             </div>
                         </div>

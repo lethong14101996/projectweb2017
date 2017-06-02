@@ -25,11 +25,14 @@
         response.sendRedirect("index.jsp");
     } else {
 %>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/select.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -37,7 +40,11 @@
         <title><%=languageMap.get("title")%></title>
         <script src="js/base-ajax.js"></script>
         <link rel="stylesheet" type="text/css" href="css/adminTable.scss">
+        
+        
+        
     </head>
+    
     <body>
         <div class="header">
             <div class="top-header">
@@ -62,7 +69,8 @@
                 <div class="clearfix"> </div>	
             </div>
             <div class="clearfix"> </div>		
-        </div><br>
+        </div>
+                        <br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-md-offset-1" style="border: 1px solid  #bfbfbf;">
@@ -72,7 +80,7 @@
                         <li class="active"><a data-toggle="tab" class="btn-info btn-block" href="#activate"><%=languageMap.get("admin.activateacc")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
                         <li><a data-toggle="tab" class="btn-primary" href="#stats"><%=languageMap.get("admin.stats")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
                         <li><a data-toggle="tab" class="btn-danger" href="#profits"><%=languageMap.get("admin.profit")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
-                        <li><a data-toggle="tab" class="btn-danger" href="#profits"><%=languageMap.get("admin.profit")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                        
 
                     </ul>
 
@@ -127,24 +135,31 @@
                             <h3><%=languageMap.get("admin.stats")%></h3>
                             <div>
                                 <center>
-                                    <h1> Thống Kê Bán Hàng </h1>
-                                    <form action="controller" method="post">
-                                       Tháng : 
+                                    <h1> Lịch sử giao dịch </h1>
+                                    <form action="controller" method="post" >
+                                       
+                                       <div class="styled-select yellow rounded">
                                         <select id="mm" name ="month">
+                                            Tháng:
                                             <option value="mm">Tháng</option>
                                             <script type="text/javascript">
                                                 for (var i = 1; i <= 12; i++)
                                                     document.write("<option value='" + i + "'>" + i + "</option>");
                                             </script>    
                                         </select>
-                                        Năm :
+                                       </div>
+                                       
+                                        <div class="styled-select yellow rounded">
                                         <select id="yy" name = "year">
+                                            Năm:
                                             <option value="yy">Năm</option>
                                             <script type="text/javascript">
                                                 for (var i = 2009; i <= 2017; i++)
                                                     document.write("<option value='" + i + "'>" + i + "</option>");
                                             </script>    
                                         </select>
+                                        </div>
+                                        
                                         <input type="submit" name="action" value="getdetail">
                                     </form>
                                     <br>
@@ -173,13 +188,13 @@
                                                 <tr>
                                                     <td>Long description </td>
                                                     <td>
-                                                        <textarea rows="20" name="description" cols="55"  required=""></textarea>
+                                                        <textarea rows="10" name="description" cols="53"  required=""></textarea>
 
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>price</td>
-                                                    <td><input type="text" name="price" required=""></td>
+                                                    <td><input type="text" name="price" required="" size="52"></td>
                                                 </tr>
 
                                                 <tr>

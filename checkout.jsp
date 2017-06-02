@@ -151,15 +151,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="<%=url[0]%>" class="img-responsive" alt=""/>
                             </div>
                             <div class="cart-item-info">
-                                <h3><a href="#"><%=temp.getName()%></a><span>Model No: 3578</span></h3>
+                                <h1><a href="#"><%=temp.getName()%></a><span></span></h1>
                                 <ul class="qty">
-                                    <li><p>Size : 5</p></li>
-                                    <li><p><%=temp.getQuantity()%></p></li>
+<!--                                    <li><p>Size : 5</p></li>-->
+                                    <li><h3>Quantity: <%=temp.getQuantity()%></h3></li>
                                 </ul>
 
                                 <div class="delivery">
-                                    <p>Service Charges : <%=temp.getPrice()*temp.getQuantity()%></p>
-                                    <span>Delivered in 2-3 bussiness days</span>
+                                    <!--<p>Service Charges : <%=temp.getPrice()*temp.getQuantity()%></p>-->
+                                    
                                     <div class="clearfix"></div>
                                 </div>	
                             </div>
@@ -195,32 +195,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>		
                 </div>
                 <div class="col-md-3 cart-total">
-                    <a class="continue" href="#">Continue to basket</a>
-                    <div class="price-details">
-                        <h3>Price Details</h3>
-                        <span>Total</span>
-                        <span class="total1">6200.00</span>
-                        <span>Discount</span>
-                        <span class="total1">---</span>
-                        <span>Delivery Charges</span>
-                        <span class="total1">150.00</span>
-                        <div class="clearfix"></div>				 
-                    </div>	
+                    <a class="continue" href="#">SHOPPING CART</a>
+                    
                     <ul class="total_price">
                         <li class="last_price"> <h4>TOTAL</h4></li>	
-                        <li class="last_price"><span><%=cart.getTotal()%></span></li>
+                        <li class="last_price"><span><%=cart.getTotal()%> $ </span></li>
                         <div class="clearfix"> </div>
                     </ul>
 
 
                     <div class="clearfix"></div>
                     <a class="order" href="controller?action=order">Place Order</a>
-                    <div class="total-item">
-                        <h3>OPTIONS</h3>
-                        <h4>COUPONS</h4>
-                        <a class="cpns" href="#">Apply Coupons</a>
-                        <p><a href="#">Log In</a> to use accounts - linked coupons</p>
-                    </div>
+                    
                 </div>
 
                 <div class="clearfix"> </div>
